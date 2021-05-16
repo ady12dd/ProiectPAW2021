@@ -32,7 +32,7 @@ namespace Elaborare_orarii_profesori
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLog));
             this.lbUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAcces = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbUserNameLog = new System.Windows.Forms.TextBox();
             this.tbPasswordLog = new System.Windows.Forms.TextBox();
@@ -43,10 +43,10 @@ namespace Elaborare_orarii_profesori
             // 
             this.lbUserName.AutoSize = true;
             this.lbUserName.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbUserName.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbUserName.Location = new System.Drawing.Point(42, 39);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(149, 24);
+            this.lbUserName.Size = new System.Drawing.Size(156, 26);
             this.lbUserName.TabIndex = 0;
             this.lbUserName.Text = "Nume utilizator";
             // 
@@ -54,22 +54,23 @@ namespace Elaborare_orarii_profesori
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(45, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
+            this.label1.Size = new System.Drawing.Size(159, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Parola Utilizator";
             // 
-            // button1
+            // btnAcces
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(48, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Acces";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAcces.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAcces.Location = new System.Drawing.Point(48, 143);
+            this.btnAcces.Name = "btnAcces";
+            this.btnAcces.Size = new System.Drawing.Size(75, 23);
+            this.btnAcces.TabIndex = 2;
+            this.btnAcces.Text = "Acces";
+            this.btnAcces.UseVisualStyleBackColor = false;
+            this.btnAcces.Click += new System.EventHandler(this.btnAcces_Click);
             // 
             // label2
             // 
@@ -105,6 +106,7 @@ namespace Elaborare_orarii_profesori
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "aici";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FormLog
             // 
@@ -116,9 +118,11 @@ namespace Elaborare_orarii_profesori
             this.Controls.Add(this.tbPasswordLog);
             this.Controls.Add(this.tbUserNameLog);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAcces);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbUserName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormLog";
             this.Text = "Pagina de inregistrare";
             this.ResumeLayout(false);
@@ -130,7 +134,7 @@ namespace Elaborare_orarii_profesori
 
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAcces;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUserNameLog;
         private System.Windows.Forms.TextBox tbPasswordLog;
