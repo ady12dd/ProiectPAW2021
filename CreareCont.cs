@@ -14,27 +14,24 @@ namespace Elaborare_orarii_profesori
 {
     public partial class FormCreareCont : Form
     {
+
+        private const string ConnectionString = "Data Source=database.db";
         public FormCreareCont()
         {
             InitializeComponent();
         }
 
-        private void FormCreareCont_Load(object sender, EventArgs e)
-        {
-            
-           
-        }
+      
 
-        private void btnSalvareInFisier_Click(object sender, EventArgs e)
-        {
-
-            Database dataBaseObject = new Database();
+        private void btnSalvareInBazaDate_Click(object sender, EventArgs e)
+        {   
             //inserare in baza de date
-            using (dataBaseObject.myConnection)
+            using (SQLiteConnection myConnection = new SQLiteConnection(ConnectionString))
             {
+                myConnection.Open();
                 string query = "INSERT INTO Utilizatori (Nume,Parola)"+ "values (@Nume,@Parola); ";
-                SQLiteCommand myCommand = new SQLiteCommand(query, dataBaseObject.myConnection);
-                dataBaseObject.myConnection.Open();
+                SQLiteCommand myCommand = new SQLiteCommand(query, myConnection);
+                
                 if (tbUSerNamePass.Text.Length < 3 || tbUserNameCreate.Text.Length < 3)
                 {
                     MessageBox.Show("Utilizatorul sau/si parola trebuie sa aiba minim 3 caractere","Error");
@@ -43,10 +40,12 @@ namespace Elaborare_orarii_profesori
                 {
                     myCommand.Parameters.AddWithValue("@Nume", tbUserNameCreate.Text);
                     myCommand.Parameters.AddWithValue("@Parola", tbUSerNamePass.Text);
-                    var result = myCommand.ExecuteNonQuery();
-                }
-                dataBaseObject.myConnection.Close();
+                    myCommand.ExecuteNonQuery();
+                    
 
+                }
+
+                myConnection.Close();
             }
 
             

@@ -49,7 +49,7 @@ namespace Elaborare_orarii_profesori
             this.btnSalvareInFisier.TabIndex = 0;
             this.btnSalvareInFisier.Text = "Salvare Utilizator";
             this.btnSalvareInFisier.UseVisualStyleBackColor = false;
-            this.btnSalvareInFisier.Click += new System.EventHandler(this.btnSalvareInFisier_Click);
+            this.btnSalvareInFisier.Click += new System.EventHandler(this.btnSalvareInBazaDate_Click);
             // 
             // label1
             // 
@@ -100,7 +100,7 @@ namespace Elaborare_orarii_profesori
             this.MaximizeBox = false;
             this.Name = "FormCreareCont";
             this.Text = "CreareCont";
-            this.Load += new System.EventHandler(this.FormCreareCont_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
