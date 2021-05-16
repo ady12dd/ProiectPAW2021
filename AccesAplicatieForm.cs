@@ -50,7 +50,7 @@ namespace Elaborare_orarii_profesori
 
                     if (dataTable.Rows.Count > 0)
                     {
-                        OrarProfesori orarProfesori = new OrarProfesori();
+                        OrarProfesoriForm orarProfesori = new OrarProfesoriForm();
                         orarProfesori.Show();
                         
 
