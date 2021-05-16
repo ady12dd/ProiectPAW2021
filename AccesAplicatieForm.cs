@@ -52,7 +52,7 @@ namespace Elaborare_orarii_profesori
                     {
                         OrarProfesori orarProfesori = new OrarProfesori();
                         orarProfesori.Show();
-                      
+                        
 
                     }
                     else

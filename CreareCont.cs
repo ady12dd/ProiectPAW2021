@@ -46,7 +46,13 @@ namespace Elaborare_orarii_profesori
                 }
 
                 myConnection.Close();
+
+               
+
+                
             }
+
+            
 
             
         }
