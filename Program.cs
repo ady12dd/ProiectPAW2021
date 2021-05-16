@@ -16,7 +16,7 @@ namespace Elaborare_orarii_profesori
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MeniuPrincipal());
+            Application.Run(new FormLog());
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Elaborare_orarii_profesori
 {
-    public partial class MeniuPrincipal : Form
+    public partial class FormLog : Form
     {
-        public MeniuPrincipal()
+        public FormLog()
         {
             InitializeComponent();
         }
