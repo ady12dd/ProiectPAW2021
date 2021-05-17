@@ -35,6 +35,9 @@ namespace Elaborare_orarii_profesori
             this.label2 = new System.Windows.Forms.Label();
             this.tbUserNameCreate = new System.Windows.Forms.TextBox();
             this.tbUSerNamePass = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSalvareInFisier
@@ -50,6 +53,8 @@ namespace Elaborare_orarii_profesori
             this.btnSalvareInFisier.Text = "Salvare Utilizator";
             this.btnSalvareInFisier.UseVisualStyleBackColor = false;
             this.btnSalvareInFisier.Click += new System.EventHandler(this.btnSalvareInBazaDate_Click);
+            this.btnSalvareInFisier.MouseLeave += new System.EventHandler(this.btnSalvareInFisier_MouseLeave);
+            this.btnSalvareInFisier.MouseHover += new System.EventHandler(this.btnSalvareInFisier_MouseHover);
             // 
             // label1
             // 
@@ -75,6 +80,8 @@ namespace Elaborare_orarii_profesori
             this.tbUserNameCreate.Name = "tbUserNameCreate";
             this.tbUserNameCreate.Size = new System.Drawing.Size(100, 20);
             this.tbUserNameCreate.TabIndex = 3;
+            this.tbUserNameCreate.MouseLeave += new System.EventHandler(this.tbUserNameCreate_MouseLeave);
+            this.tbUserNameCreate.MouseHover += new System.EventHandler(this.tbUserNameCreate_MouseHover);
             // 
             // tbUSerNamePass
             // 
@@ -82,6 +89,23 @@ namespace Elaborare_orarii_profesori
             this.tbUSerNamePass.Name = "tbUSerNamePass";
             this.tbUSerNamePass.Size = new System.Drawing.Size(100, 20);
             this.tbUSerNamePass.TabIndex = 4;
+            this.tbUSerNamePass.MouseLeave += new System.EventHandler(this.tbUSerNamePass_MouseLeave);
+            this.tbUSerNamePass.MouseHover += new System.EventHandler(this.tbUSerNamePass_MouseHover);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(499, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // FormCreareCont
             // 
@@ -91,6 +115,7 @@ namespace Elaborare_orarii_profesori
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(499, 450);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tbUSerNamePass);
             this.Controls.Add(this.tbUserNameCreate);
             this.Controls.Add(this.label2);
@@ -100,7 +125,9 @@ namespace Elaborare_orarii_profesori
             this.MaximizeBox = false;
             this.Name = "FormCreareCont";
             this.Text = "CreareCont";
-            
+            this.Load += new System.EventHandler(this.FormCreareCont_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +140,7 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUserNameCreate;
         private System.Windows.Forms.TextBox tbUSerNamePass;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

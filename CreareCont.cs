@@ -46,15 +46,45 @@ namespace Elaborare_orarii_profesori
                 }
 
                 myConnection.Close();
-
-               
-
+                this.Close();
                 
             }
 
-            
+        }
 
-            
+        private void tbUserNameCreate_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Intoiduceti un nume de utilizator!!!";
+        }
+
+        private void tbUserNameCreate_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbUSerNamePass_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Introduceti o parola pentru securizarea contului!!!";
+        }
+
+        private void tbUSerNamePass_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void btnSalvareInFisier_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Salvati contul in baza de date!!!";
+        }
+
+        private void btnSalvareInFisier_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void FormCreareCont_Load(object sender, EventArgs e)
+        {
+            tbUserNameCreate.Select();
         }
     }
 }
