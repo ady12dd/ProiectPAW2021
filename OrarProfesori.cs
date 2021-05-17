@@ -350,5 +350,26 @@ namespace Elaborare_orarii_profesori
                 printDocument.Print();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (lvProfesori.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selectati un profesor!!!");
+            }
+            else {
+                ListViewItem selectedItem = lvProfesori.SelectedItems[0];
+                Profesor p = (Profesor)selectedItem.Tag;
+                string textComplet = $"{p.Nume},{p.Grad},{p.Varsta},{p.Sex} ";
+                foreach (ZiSaptamana zi in p.ZileSaptamana) {
+                    string textSapatamana = "";
+                    textSapatamana = zi.Disciplina.ToString() + " "+zi.Sala.ToString() +" "+ zi.Nume +" "+ zi.IntervalOrar;
+                    textComplet+= textSapatamana;
+                }
+
+                Clipboard.SetText(textComplet);
+                
+            }
+        }
     }
 }
