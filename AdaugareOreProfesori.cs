@@ -27,10 +27,17 @@ namespace Elaborare_orarii_profesori
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Sala sala = new Sala(tbNrSala.Text, comboNumeSala.Text);
-            Disciplina disciplina = new Disciplina(tbNumeDisciplina.Text,tbEvaluare.Text);
-            ZiSaptamana zi = new ZiSaptamana(comboZiSaptamana.Text,sala,disciplina,comboBox1.Text);
-            profesor.ZileSaptamana.Add(zi);
+            try
+            {
+                Sala sala = new Sala(tbNrSala.Text, comboNumeSala.Text);
+                Disciplina disciplina = new Disciplina(tbNumeDisciplina.Text, tbEvaluare.Text);
+                ZiSaptamana zi = new ZiSaptamana(comboZiSaptamana.Text, sala, disciplina, comboBox1.Text);
+                profesor.ZileSaptamana.Add(zi);
+            }
+            catch {
+
+                Console.WriteLine("Erroare la salvare orar");
+            }
         }
     }
 }

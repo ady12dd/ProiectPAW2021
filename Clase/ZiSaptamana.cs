@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elaborare_orarii_profesori.Clase
 {
+    [Serializable]
     class ZiSaptamana
     {
         private String nume;

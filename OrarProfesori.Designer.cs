@@ -32,6 +32,7 @@ namespace Elaborare_orarii_profesori
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrarProfesoriForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnModif = new System.Windows.Forms.Button();
             this.btnAdProf = new System.Windows.Forms.Button();
             this.tbSex = new System.Windows.Forms.TextBox();
             this.tbVarsta = new System.Windows.Forms.TextBox();
@@ -49,6 +50,8 @@ namespace Elaborare_orarii_profesori
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afiseazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editeazaProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,12 +59,19 @@ namespace Elaborare_orarii_profesori
             this.serializareBinaraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deserializeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPrint = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPrintPreview = new System.Windows.Forms.ToolStripMenuItem();
             this.lvOrar = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.afiseazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -70,6 +80,7 @@ namespace Elaborare_orarii_profesori
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnModif);
             this.groupBox1.Controls.Add(this.btnAdProf);
             this.groupBox1.Controls.Add(this.tbSex);
             this.groupBox1.Controls.Add(this.tbVarsta);
@@ -86,6 +97,18 @@ namespace Elaborare_orarii_profesori
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adaugare Profesor";
             // 
+            // btnModif
+            // 
+            this.btnModif.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnModif.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModif.Location = new System.Drawing.Point(592, 96);
+            this.btnModif.Name = "btnModif";
+            this.btnModif.Size = new System.Drawing.Size(135, 23);
+            this.btnModif.TabIndex = 9;
+            this.btnModif.Text = "Modificare";
+            this.btnModif.UseVisualStyleBackColor = false;
+            this.btnModif.Click += new System.EventHandler(this.btnModif_Click);
+            // 
             // btnAdProf
             // 
             this.btnAdProf.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -94,7 +117,7 @@ namespace Elaborare_orarii_profesori
             this.btnAdProf.Name = "btnAdProf";
             this.btnAdProf.Size = new System.Drawing.Size(164, 23);
             this.btnAdProf.TabIndex = 8;
-            this.btnAdProf.Text = "AdaugareProfesor";
+            this.btnAdProf.Text = "&AdaugareProfesor";
             this.btnAdProf.UseVisualStyleBackColor = false;
             this.btnAdProf.Click += new System.EventHandler(this.btnAdProf_Click);
             // 
@@ -227,22 +250,38 @@ namespace Elaborare_orarii_profesori
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editeazaToolStripMenuItem,
             this.stergeToolStripMenuItem,
-            this.afiseazaToolStripMenuItem});
+            this.afiseazaToolStripMenuItem,
+            this.editeazaProfesorToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 92);
             // 
             // editeazaToolStripMenuItem
             // 
             this.editeazaToolStripMenuItem.Name = "editeazaToolStripMenuItem";
-            this.editeazaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.editeazaToolStripMenuItem.Text = "Editeaza";
+            this.editeazaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editeazaToolStripMenuItem.Text = "AdaugareOrar";
             this.editeazaToolStripMenuItem.Click += new System.EventHandler(this.editeazaToolStripMenuItem_Click);
             // 
             // stergeToolStripMenuItem
             // 
             this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.stergeToolStripMenuItem.Text = "Sterge";
+            this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
+            // 
+            // afiseazaToolStripMenuItem
+            // 
+            this.afiseazaToolStripMenuItem.Name = "afiseazaToolStripMenuItem";
+            this.afiseazaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.afiseazaToolStripMenuItem.Text = "Afiseaza";
+            this.afiseazaToolStripMenuItem.Click += new System.EventHandler(this.afiseazaToolStripMenuItem_Click);
+            // 
+            // editeazaProfesorToolStripMenuItem
+            // 
+            this.editeazaProfesorToolStripMenuItem.Name = "editeazaProfesorToolStripMenuItem";
+            this.editeazaProfesorToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editeazaProfesorToolStripMenuItem.Text = "EditeazaProfesor";
+            this.editeazaProfesorToolStripMenuItem.Click += new System.EventHandler(this.editeazaProfesorToolStripMenuItem_Click);
             // 
             // errorProvider
             // 
@@ -252,7 +291,9 @@ namespace Elaborare_orarii_profesori
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fisierToolStripMenuItem,
-            this.serializareBinaraToolStripMenuItem});
+            this.serializareBinaraToolStripMenuItem,
+            this.exportToolStripMenuItem,
+            this.printToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1171, 24);
@@ -261,13 +302,13 @@ namespace Elaborare_orarii_profesori
             // 
             // fisierToolStripMenuItem
             // 
-            this.fisierToolStripMenuItem.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.fisierToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnExit});
             this.fisierToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
-            this.fisierToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fisierToolStripMenuItem.Text = "Fisier";
+            this.fisierToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.fisierToolStripMenuItem.Text = "Aplicatie";
             // 
             // btnExit
             // 
@@ -292,12 +333,56 @@ namespace Elaborare_orarii_profesori
             this.serializeazaToolStripMenuItem.Name = "serializeazaToolStripMenuItem";
             this.serializeazaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.serializeazaToolStripMenuItem.Text = "Serializeaza";
+            this.serializeazaToolStripMenuItem.Click += new System.EventHandler(this.serializeazaToolStripMenuItem_Click);
             // 
             // deserializeazaToolStripMenuItem
             // 
             this.deserializeazaToolStripMenuItem.Name = "deserializeazaToolStripMenuItem";
             this.deserializeazaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.deserializeazaToolStripMenuItem.Text = "Deserializeaza";
+            this.deserializeazaToolStripMenuItem.Click += new System.EventHandler(this.deserializeazaToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem1});
+            this.exportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.exportToolStripMenuItem.Text = "Salvare fisier";
+            // 
+            // exportToolStripMenuItem1
+            // 
+            this.exportToolStripMenuItem1.Name = "exportToolStripMenuItem1";
+            this.exportToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.exportToolStripMenuItem1.Text = "Export";
+            this.exportToolStripMenuItem1.Click += new System.EventHandler(this.exportToolStripMenuItem1_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.printToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPrint,
+            this.btnPrintPreview});
+            this.printToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.printToolStripMenuItem.Text = "Imprimare";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(180, 22);
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(180, 22);
+            this.btnPrintPreview.Text = "Previzualizare";
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
             // lvOrar
             // 
@@ -341,12 +426,25 @@ namespace Elaborare_orarii_profesori
             this.columnHeader8.Text = "IntervalOrar";
             this.columnHeader8.Width = 86;
             // 
-            // afiseazaToolStripMenuItem
+            // printDocument
             // 
-            this.afiseazaToolStripMenuItem.Name = "afiseazaToolStripMenuItem";
-            this.afiseazaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.afiseazaToolStripMenuItem.Text = "Afiseaza";
-            this.afiseazaToolStripMenuItem.Click += new System.EventHandler(this.afiseazaToolStripMenuItem_Click);
+            this.printDocument.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument_BeginPrint);
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
             // 
             // OrarProfesoriForm
             // 
@@ -407,5 +505,15 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ToolStripMenuItem afiseazaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editeazaProfesorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem1;
+        private System.Windows.Forms.Button btnModif;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnPrint;
+        private System.Windows.Forms.ToolStripMenuItem btnPrintPreview;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.PrintDialog printDialog;
     }
 }
