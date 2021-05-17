@@ -15,7 +15,7 @@ namespace Elaborare_orarii_profesori.Clase
        
         public string Nume { get => numeSala; set => numeSala = value; }
 
-        public Sala(String numar, int etaj, string nume)
+        public Sala(String numar, string nume)
         {
             this.numar = numar;
             

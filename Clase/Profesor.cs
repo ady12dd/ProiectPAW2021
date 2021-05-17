@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elaborare_orarii_profesori.Clase
 {
-    class Profesor
+  public  class Profesor
     {
         private string numeProfesor;
         private string grad;

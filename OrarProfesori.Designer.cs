@@ -46,6 +46,9 @@ namespace Elaborare_orarii_profesori
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,18 +56,16 @@ namespace Elaborare_orarii_profesori
             this.serializareBinaraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deserializeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editeazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lvOrar = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.afiseazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -221,6 +222,28 @@ namespace Elaborare_orarii_profesori
             this.columnHeader4.Text = "Sex";
             this.columnHeader4.Width = 100;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editeazaToolStripMenuItem,
+            this.stergeToolStripMenuItem,
+            this.afiseazaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 70);
+            // 
+            // editeazaToolStripMenuItem
+            // 
+            this.editeazaToolStripMenuItem.Name = "editeazaToolStripMenuItem";
+            this.editeazaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.editeazaToolStripMenuItem.Text = "Editeaza";
+            this.editeazaToolStripMenuItem.Click += new System.EventHandler(this.editeazaToolStripMenuItem_Click);
+            // 
+            // stergeToolStripMenuItem
+            // 
+            this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.stergeToolStripMenuItem.Text = "Sterge";
+            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
@@ -276,48 +299,27 @@ namespace Elaborare_orarii_profesori
             this.deserializeazaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.deserializeazaToolStripMenuItem.Text = "Deserializeaza";
             // 
-            // listView1
+            // lvOrar
             // 
-            this.listView1.BackColor = System.Drawing.Color.Snow;
-            this.listView1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listView1.BackgroundImage")));
-            this.listView1.BackgroundImageTiled = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvOrar.BackColor = System.Drawing.Color.Snow;
+            this.lvOrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lvOrar.BackgroundImage")));
+            this.lvOrar.BackgroundImageTiled = true;
+            this.lvOrar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.SystemColors.Info;
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(783, 252);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(376, 270);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editeazaToolStripMenuItem,
-            this.stergeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
-            // 
-            // editeazaToolStripMenuItem
-            // 
-            this.editeazaToolStripMenuItem.Name = "editeazaToolStripMenuItem";
-            this.editeazaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editeazaToolStripMenuItem.Text = "Editeaza";
-            this.editeazaToolStripMenuItem.Click += new System.EventHandler(this.editeazaToolStripMenuItem_Click);
-            // 
-            // stergeToolStripMenuItem
-            // 
-            this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stergeToolStripMenuItem.Text = "Sterge";
+            this.lvOrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvOrar.ForeColor = System.Drawing.SystemColors.Info;
+            this.lvOrar.FullRowSelect = true;
+            this.lvOrar.GridLines = true;
+            this.lvOrar.HideSelection = false;
+            this.lvOrar.Location = new System.Drawing.Point(783, 252);
+            this.lvOrar.Name = "lvOrar";
+            this.lvOrar.Size = new System.Drawing.Size(376, 270);
+            this.lvOrar.TabIndex = 3;
+            this.lvOrar.UseCompatibleStateImageBehavior = false;
+            this.lvOrar.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader5
             // 
@@ -326,8 +328,8 @@ namespace Elaborare_orarii_profesori
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Nr. Sala";
-            this.columnHeader6.Width = 75;
+            this.columnHeader6.Text = "Zi saptamana";
+            this.columnHeader6.Width = 94;
             // 
             // columnHeader7
             // 
@@ -339,13 +341,20 @@ namespace Elaborare_orarii_profesori
             this.columnHeader8.Text = "IntervalOrar";
             this.columnHeader8.Width = 86;
             // 
+            // afiseazaToolStripMenuItem
+            // 
+            this.afiseazaToolStripMenuItem.Name = "afiseazaToolStripMenuItem";
+            this.afiseazaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.afiseazaToolStripMenuItem.Text = "Afiseaza";
+            this.afiseazaToolStripMenuItem.Click += new System.EventHandler(this.afiseazaToolStripMenuItem_Click);
+            // 
             // OrarProfesoriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1171, 568);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvOrar);
             this.Controls.Add(this.lvProfesori);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -356,10 +365,10 @@ namespace Elaborare_orarii_profesori
             this.Load += new System.EventHandler(this.OrarProfesoriForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,7 +398,7 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.ToolStripMenuItem serializareBinaraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serializeazaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deserializeazaToolStripMenuItem;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvOrar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editeazaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stergeToolStripMenuItem;
@@ -397,5 +406,6 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ToolStripMenuItem afiseazaToolStripMenuItem;
     }
 }

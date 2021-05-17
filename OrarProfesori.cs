@@ -165,8 +165,37 @@ namespace Elaborare_orarii_profesori
             }
             else {
                 ListViewItem selectedItem = lvProfesori.SelectedItems[0];
-                AdaugareOreProfesoriForm adaugareOreProfesoriForm = new AdaugareOreProfesoriForm();
+                Profesor p = (Profesor)selectedItem.Tag;
+
+                AdaugareOreProfesoriForm adaugareOreProfesoriForm = new AdaugareOreProfesoriForm(p);
                 adaugareOreProfesoriForm.ShowDialog();
+            }
+        }
+
+        private void afiseazaOrarProfesor(Profesor p)
+        {
+            lvOrar.Items.Clear();
+            foreach (ZiSaptamana zi in p.ZileSaptamana )
+            {
+                ListViewItem listViewItem = new ListViewItem(zi.Sala.Nume);
+                listViewItem.SubItems.Add(zi.Nume);
+                listViewItem.SubItems.Add(zi.Disciplina.NumeDisciplina);
+                listViewItem.SubItems.Add(zi.IntervalOrar);
+                lvOrar.Items.Add(listViewItem);
+            }
+        }
+
+        private void afiseazaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvProfesori.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selectati un profesor!!!");
+            }
+            else
+            {
+                ListViewItem selectedItem = lvProfesori.SelectedItems[0];
+                Profesor p = (Profesor)selectedItem.Tag;
+                afiseazaOrarProfesor(p);
             }
         }
     }

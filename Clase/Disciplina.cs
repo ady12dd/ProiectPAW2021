@@ -15,7 +15,7 @@ namespace Elaborare_orarii_profesori.Clase
 
         public string TipEvaluare { get => tipEvaluare; set => tipEvaluare = value; }
 
-        public Disciplina(string numeDisciplina, string arieDisciplina, string tipEvaluare)
+        public Disciplina(string numeDisciplina, string tipEvaluare)
         {
             this.numeDisciplina = numeDisciplina;
             this.tipEvaluare = tipEvaluare;
