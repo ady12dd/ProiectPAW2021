@@ -29,6 +29,8 @@ namespace Elaborare_orarii_profesori
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrarProfesoriForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +42,13 @@ namespace Elaborare_orarii_profesori
             this.tbSex = new System.Windows.Forms.TextBox();
             this.btnAdProf = new System.Windows.Forms.Button();
             this.lvProfesori = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -111,6 +119,8 @@ namespace Elaborare_orarii_profesori
             this.tbNume.Name = "tbNume";
             this.tbNume.Size = new System.Drawing.Size(175, 20);
             this.tbNume.TabIndex = 4;
+            this.tbNume.Validating += new System.ComponentModel.CancelEventHandler(this.tbNume_Validating);
+            this.tbNume.Validated += new System.EventHandler(this.tbNume_Validated);
             // 
             // tbGrad
             // 
@@ -125,6 +135,8 @@ namespace Elaborare_orarii_profesori
             this.tbVarsta.Name = "tbVarsta";
             this.tbVarsta.Size = new System.Drawing.Size(175, 20);
             this.tbVarsta.TabIndex = 6;
+            this.tbVarsta.Validating += new System.ComponentModel.CancelEventHandler(this.tbVarsta_Validating);
+            this.tbVarsta.Validated += new System.EventHandler(this.tbVarsta_Validated);
             // 
             // tbSex
             // 
@@ -150,24 +162,63 @@ namespace Elaborare_orarii_profesori
             this.lvProfesori.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvProfesori.BackColor = System.Drawing.Color.Snow;
+            this.lvProfesori.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lvProfesori.BackgroundImage")));
+            this.lvProfesori.BackgroundImageTiled = true;
+            this.lvProfesori.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lvProfesori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lvProfesori.ForeColor = System.Drawing.SystemColors.Info;
+            this.lvProfesori.FullRowSelect = true;
+            this.lvProfesori.GridLines = true;
             this.lvProfesori.HideSelection = false;
             this.lvProfesori.Location = new System.Drawing.Point(33, 171);
             this.lvProfesori.Name = "lvProfesori";
             this.lvProfesori.Size = new System.Drawing.Size(743, 267);
             this.lvProfesori.TabIndex = 1;
             this.lvProfesori.UseCompatibleStateImageBehavior = false;
+            this.lvProfesori.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nume";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Grad";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Varsta";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Sex";
+            this.columnHeader4.Width = 100;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // OrarProfesoriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lvProfesori);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "OrarProfesoriForm";
             this.Text = "OrarProfesori";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,5 +236,10 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView lvProfesori;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
