@@ -73,6 +73,8 @@ namespace Elaborare_orarii_profesori
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbDragAndDrop = new System.Windows.Forms.TextBox();
+            this.btIncarcareOrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -374,14 +376,14 @@ namespace Elaborare_orarii_profesori
             // btnPrint
             // 
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(180, 22);
+            this.btnPrint.Size = new System.Drawing.Size(152, 22);
             this.btnPrint.Text = "Print";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnPrintPreview
             // 
             this.btnPrintPreview.Name = "btnPrintPreview";
-            this.btnPrintPreview.Size = new System.Drawing.Size(180, 22);
+            this.btnPrintPreview.Size = new System.Drawing.Size(152, 22);
             this.btnPrintPreview.Text = "Previzualizare";
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
@@ -459,12 +461,35 @@ namespace Elaborare_orarii_profesori
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tbDragAndDrop
+            // 
+            this.tbDragAndDrop.AllowDrop = true;
+            this.tbDragAndDrop.Location = new System.Drawing.Point(33, 195);
+            this.tbDragAndDrop.Name = "tbDragAndDrop";
+            this.tbDragAndDrop.Size = new System.Drawing.Size(743, 20);
+            this.tbDragAndDrop.TabIndex = 5;
+            this.tbDragAndDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbDragAndDrop_MouseDown);
+            // 
+            // btIncarcareOrar
+            // 
+            this.btIncarcareOrar.BackColor = System.Drawing.Color.Lime;
+            this.btIncarcareOrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btIncarcareOrar.Location = new System.Drawing.Point(797, 193);
+            this.btIncarcareOrar.Name = "btIncarcareOrar";
+            this.btIncarcareOrar.Size = new System.Drawing.Size(202, 23);
+            this.btIncarcareOrar.TabIndex = 6;
+            this.btIncarcareOrar.Text = "IncarcareProfesorPremiu";
+            this.btIncarcareOrar.UseVisualStyleBackColor = false;
+            this.btIncarcareOrar.Click += new System.EventHandler(this.btIncarcareOrar_Click);
+            // 
             // OrarProfesoriForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1171, 568);
+            this.Controls.Add(this.btIncarcareOrar);
+            this.Controls.Add(this.tbDragAndDrop);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvOrar);
             this.Controls.Add(this.lvProfesori);
@@ -530,5 +555,7 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btIncarcareOrar;
+        private System.Windows.Forms.TextBox tbDragAndDrop;
     }
 }

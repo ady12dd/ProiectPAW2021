@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Elaborare_orarii_profesori.Clase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Elaborare_orarii_profesori.Clase;
 
 namespace Elaborare_orarii_profesori
 {
@@ -311,19 +308,20 @@ namespace Elaborare_orarii_profesori
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font font = new Font("Cooper", 12);
-            
+
             int axaYProf = printDocument.DefaultPageSettings.Margins.Top;
-            
+
             while (indexCurentProf < listaProfesori.Count)
             {
                 //imprimare
                 Profesor profesor = listaProfesori[indexCurentProf];
                 e.Graphics.DrawString($"{profesor.Nume}  {profesor.Varsta}  {profesor.Grad } {profesor.Sex}", font,
                     Brushes.Blue, printDocument.DefaultPageSettings.Margins.Left, axaYProf);
-             
+
                 axaYProf += 20;
                 //ca sa putem trece pe mai multe pagini
-                if (axaYProf > e.MarginBounds.Height) {
+                if (axaYProf > e.MarginBounds.Height)
+                {
                     e.HasMorePages = true;
                     break;
                 }
@@ -332,11 +330,11 @@ namespace Elaborare_orarii_profesori
             }
         }
         int indexCurentProf = 0;
-       
+
         private void printDocument_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             indexCurentProf = 0;
-            
+
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
@@ -346,7 +344,8 @@ namespace Elaborare_orarii_profesori
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (printDialog.ShowDialog() == DialogResult.OK) {
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
                 printDocument.Print();
             }
         }
@@ -357,19 +356,34 @@ namespace Elaborare_orarii_profesori
             {
                 MessageBox.Show("Selectati un profesor!!!");
             }
-            else {
+            else
+            {
                 ListViewItem selectedItem = lvProfesori.SelectedItems[0];
                 Profesor p = (Profesor)selectedItem.Tag;
                 string textComplet = $"{p.Nume},{p.Grad},{p.Varsta},{p.Sex} ";
-                foreach (ZiSaptamana zi in p.ZileSaptamana) {
+                foreach (ZiSaptamana zi in p.ZileSaptamana)
+                {
                     string textSapatamana = "";
-                    textSapatamana = zi.Disciplina.ToString() + " "+zi.Sala.ToString() +" "+ zi.Nume +" "+ zi.IntervalOrar;
-                    textComplet+= textSapatamana;
+                    textSapatamana = zi.Disciplina.ToString() + " " + zi.Sala.ToString() + " " + zi.Nume + " " + zi.IntervalOrar;
+                    textComplet += textSapatamana;
                 }
 
                 Clipboard.SetText(textComplet);
-                
+
             }
+        }
+
+        private void btIncarcareOrar_Click(object sender, EventArgs e)
+        {
+            listaProfesori.Sort(new ProfesorVarstaComparer());
+            Profesor p = listaProfesori.Last();
+            tbDragAndDrop.Text = p.ToString();
+
+        }
+
+        private void tbDragAndDrop_MouseDown(object sender, MouseEventArgs e)
+        {
+            tbDragAndDrop.DoDragDrop(tbDragAndDrop.Text, DragDropEffects.Copy);
         }
     }
 }

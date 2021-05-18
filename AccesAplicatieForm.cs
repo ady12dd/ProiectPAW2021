@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
-using Elaborare_orarii_profesori.Clase;
+using System.Windows.Forms;
 
 namespace Elaborare_orarii_profesori
 {
@@ -52,8 +45,8 @@ namespace Elaborare_orarii_profesori
                     {
                         OrarProfesoriForm orarProfesori = new OrarProfesoriForm();
                         orarProfesori.Show();
-                        
-                        
+
+
 
                     }
                     else
@@ -61,7 +54,7 @@ namespace Elaborare_orarii_profesori
                         MessageBox.Show("Logare esuata!!!", "Error");
 
                     }
-                    
+
                 }
             }
         }

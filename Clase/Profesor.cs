@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elaborare_orarii_profesori.Clase
 {
     [Serializable]
-  public  class Profesor
+    public class Profesor : IComparable<Profesor>
     {
         private string numeProfesor;
         private string grad;
@@ -35,9 +32,24 @@ namespace Elaborare_orarii_profesori.Clase
         public string Sex { get => sex; set => sex = value; }
         internal List<ZiSaptamana> ZileSaptamana { get => zileSaptamana; set => zileSaptamana = value; }
 
+
+
+        public int CompareTo(Profesor other)
+        {
+            return Varsta.CompareTo(other.Varsta);
+        }
+
         public override string ToString()
         {
             return $"Profesorul cu numele {numeProfesor} are gradul {grad} are varsta de {varsta} si este de sex {sex}";
+        }
+    }
+
+    class ProfesorVarstaComparer : IComparer<Profesor>
+    {
+        public int Compare(Profesor x, Profesor y)
+        {
+            return x.Varsta.CompareTo(y.Varsta);
         }
     }
 }

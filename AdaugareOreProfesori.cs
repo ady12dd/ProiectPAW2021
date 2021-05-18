@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Elaborare_orarii_profesori.Clase;
+using System;
 using System.Windows.Forms;
-using Elaborare_orarii_profesori.Clase;
 
 namespace Elaborare_orarii_profesori
 {
     public partial class AdaugareOreProfesoriForm : Form
     {
-       private Profesor profesor;
+        private Profesor profesor;
         public AdaugareOreProfesoriForm(Profesor profesorPreluat)
         {
             InitializeComponent();
@@ -34,7 +27,8 @@ namespace Elaborare_orarii_profesori
                 ZiSaptamana zi = new ZiSaptamana(comboZiSaptamana.Text, sala, disciplina, comboBox1.Text);
                 profesor.ZileSaptamana.Add(zi);
             }
-            catch {
+            catch
+            {
 
                 Console.WriteLine("Erroare la salvare orar");
             }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elaborare_orarii_profesori.Clase
 {
@@ -13,13 +9,13 @@ namespace Elaborare_orarii_profesori.Clase
         private string numeSala;
 
         public string Numar { get => numar; set => numar = value; }
-       
+
         public string Nume { get => numeSala; set => numeSala = value; }
 
         public Sala(String numar, string nume)
         {
             this.numar = numar;
-            
+
             this.numeSala = nume;
         }
 

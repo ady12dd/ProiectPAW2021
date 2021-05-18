@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elaborare_orarii_profesori.Clase
 {
@@ -19,7 +15,7 @@ namespace Elaborare_orarii_profesori.Clase
         public string IntervalOrar { get => intervalOrar; set => intervalOrar = value; }
         public string Nume { get => nume; set => nume = value; }
 
-        public ZiSaptamana(string nume,Sala sala, Disciplina disciplina, string intervalOrar)
+        public ZiSaptamana(string nume, Sala sala, Disciplina disciplina, string intervalOrar)
         {
             Sala = sala;
             Disciplina = disciplina;

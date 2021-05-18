@@ -61,6 +61,7 @@
     <Compile Include="AdaugareOreProfesori.Designer.cs">
       <DependentUpon>AdaugareOreProfesori.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clase\Facultate.cs" />
     <Compile Include="Clase\Disciplina.cs" />
     <Compile Include="Clase\Profesor.cs" />
     <Compile Include="Clase\Sala.cs" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="AccesAplicatieForm.Designer.cs">
       <DependentUpon>AccesAplicatieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocatieControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LocatieControl.Designer.cs">
+      <DependentUpon>LocatieControl.cs</DependentUpon>
     </Compile>
     <Compile Include="OrarProfesori.cs">
       <SubType>Form</SubType>
@@ -93,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AccesAplicatieForm.resx">
       <DependentUpon>AccesAplicatieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocatieControl.resx">
+      <DependentUpon>LocatieControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrarProfesori.resx">
       <DependentUpon>OrarProfesori.cs</DependentUpon>
