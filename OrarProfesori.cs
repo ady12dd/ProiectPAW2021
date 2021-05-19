@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace Elaborare_orarii_profesori
 {
@@ -14,10 +16,15 @@ namespace Elaborare_orarii_profesori
 
     {
         private List<Profesor> listaProfesori;
+        private List<Profesor> suplinitori;
+
+        private const string ConnectionString2 = "Data Source=database2.db";
         public OrarProfesoriForm()
         {
             InitializeComponent();
             this.listaProfesori = new List<Profesor>();
+            suplinitori = new List<Profesor>();
+
         }
 
         private void btnAdProf_Click(object sender, EventArgs e)
@@ -66,6 +73,20 @@ namespace Elaborare_orarii_profesori
             Profesor profesor = new Profesor(nume, grad, varsta, sex);
             listaProfesori.Add(profesor);
             afiseazaProfesori();
+
+        }
+
+        private void afiseazaProfSuplinitori()
+        {
+
+            lvProfDisciplina.Items.Clear();
+            foreach (Profesor p in suplinitori)
+            {
+                ListViewItem listViewItem = new ListViewItem(p.Nume);
+                listViewItem.SubItems.Add(p.Disciplina.NumeDisciplina);
+                listViewItem.Tag = p;
+                lvProfDisciplina.Items.Add(listViewItem);
+            }
 
         }
 
@@ -154,7 +175,12 @@ namespace Elaborare_orarii_profesori
         private void OrarProfesoriForm_Load(object sender, EventArgs e)
         {
             tbNume.Select();
+            incarcaListaProfesoriSuplinitori();
+            afiseazaProfSuplinitori();
+
         }
+
+
 
         private void editeazaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -350,7 +376,7 @@ namespace Elaborare_orarii_profesori
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btClipboard_Click(object sender, EventArgs e)
         {
             if (lvProfesori.SelectedItems.Count == 0)
             {
@@ -373,7 +399,7 @@ namespace Elaborare_orarii_profesori
             }
         }
 
-        private void btIncarcareOrar_Click(object sender, EventArgs e)
+        private void btPremiu_Click(object sender, EventArgs e)
         {
             listaProfesori.Sort(new ProfesorVarstaComparer());
             Profesor p = listaProfesori.Last();
@@ -384,6 +410,125 @@ namespace Elaborare_orarii_profesori
         private void tbDragAndDrop_MouseDown(object sender, MouseEventArgs e)
         {
             tbDragAndDrop.DoDragDrop(tbDragAndDrop.Text, DragDropEffects.Copy);
+        }
+
+
+
+        private void stergereProfesorSuplinitor(Profesor profesor)
+        {
+
+            const string query = "DELETE FROM Profesori WHERE Nume=@Nume";
+            using (SQLiteConnection connnection = new SQLiteConnection(ConnectionString2))
+            {
+                connnection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connnection);
+                command.Parameters.AddWithValue("@Nume", profesor.Nume);
+                command.ExecuteNonQuery();
+                suplinitori.Remove(profesor);
+            }
+
+        }
+
+        private void incarcaListaProfesoriSuplinitori()
+        {
+            string query = "SELECT * FROM Profesori";
+            using (SQLiteConnection connnection = new SQLiteConnection(ConnectionString2))
+            {
+                connnection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connnection);
+                SQLiteDataReader sqlDataReader = command.ExecuteReader();
+                try
+                {
+                    while (sqlDataReader.Read())
+                    {
+
+                        Profesor profesor = new Profesor(
+                            sqlDataReader["Nume"].ToString(),
+                            sqlDataReader["Grad"].ToString(),
+                            int.Parse(sqlDataReader["Varsta"].ToString()),
+                            new Disciplina(sqlDataReader["Disciplina"].ToString(), "")
+                            );
+                        suplinitori.Add(profesor);
+                    }
+                }
+                finally
+                {
+                    sqlDataReader.Close();
+
+                }
+            }
+
+        }
+
+        private void adaugareProfesorSuplinitor(Profesor profesor)
+        {
+            string query = "INSERT INTO Profesori(Nume,Grad,Varsta,Disciplina)" +
+                              " values(@Nume,@Grad,@Varsta, @Disciplina)";
+            using (SQLiteConnection connnection = new SQLiteConnection(ConnectionString2))
+            {
+                connnection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connnection);
+                command.Parameters.AddWithValue("@Nume", profesor.Nume);
+                command.Parameters.AddWithValue("@Grad", profesor.Grad);
+                command.Parameters.AddWithValue("@Varsta", profesor.Varsta);
+                command.Parameters.AddWithValue("@Disciplina", profesor.Disciplina.NumeDisciplina);
+                command.ExecuteNonQuery();
+                suplinitori.Add(profesor);
+            }
+        }
+
+        private void adaugareSuplinitorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Profesor suplinitor = new Profesor();
+            FormProfesorSuplinitor form = new FormProfesorSuplinitor(suplinitor);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+                adaugareProfesorSuplinitor(suplinitor);
+                afiseazaProfSuplinitori();
+
+            }
+
+        }
+
+        private void stergeSuplinitorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvProfDisciplina.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Alegeti un profesor suplinitor din lista");
+                return;
+            }
+            else
+            {
+                ListViewItem suplinitorSelectat = lvProfDisciplina.SelectedItems[0];
+                Profesor suplinitor = (Profesor)suplinitorSelectat.Tag;
+                if (MessageBox.Show("Sunteti sigur ca doriti sa stergeti profesorul suplinitor " + suplinitor.Nume, "Stergeti profesor suplinitor", MessageBoxButtons.YesNo,
+                     MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    stergereProfesorSuplinitor(suplinitor);
+                    afiseazaProfSuplinitori();
+
+
+                }
+            }
+        }
+
+        private void modificaSuplinitorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvProfDisciplina.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Alegeti un profesor suplinitor din lista");
+                return;
+            }
+            else
+            {
+                ListViewItem suplinitorSelectat = lvProfDisciplina.SelectedItems[0];
+                Profesor suplinitor = (Profesor)suplinitorSelectat.Tag;
+                FormProfesorSuplinitor form2 = new FormProfesorSuplinitor(suplinitor);
+                form2.ShowDialog();
+                
+
+            }
         }
     }
 }

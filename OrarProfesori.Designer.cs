@@ -72,13 +72,23 @@ namespace Elaborare_orarii_profesori
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog = new System.Windows.Forms.PrintDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btClipBoard = new System.Windows.Forms.Button();
             this.tbDragAndDrop = new System.Windows.Forms.TextBox();
-            this.btIncarcareOrar = new System.Windows.Forms.Button();
+            this.btPremiu = new System.Windows.Forms.Button();
+            this.lvProfDisciplina = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.MeniuBazaDeDate = new System.Windows.Forms.ToolStripDropDownButton();
+            this.adaugareSuplinitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stergeSuplinitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificaSuplinitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortarePeMaterieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -404,7 +414,7 @@ namespace Elaborare_orarii_profesori
             this.lvOrar.HideSelection = false;
             this.lvOrar.Location = new System.Drawing.Point(783, 252);
             this.lvOrar.Name = "lvOrar";
-            this.lvOrar.Size = new System.Drawing.Size(376, 270);
+            this.lvOrar.Size = new System.Drawing.Size(355, 270);
             this.lvOrar.TabIndex = 3;
             this.lvOrar.UseCompatibleStateImageBehavior = false;
             this.lvOrar.View = System.Windows.Forms.View.Details;
@@ -449,17 +459,17 @@ namespace Elaborare_orarii_profesori
             // 
             this.printDialog.UseEXDialog = true;
             // 
-            // button1
+            // btClipBoard
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(33, 221);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Copiaza Profesor";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btClipBoard.BackColor = System.Drawing.Color.Red;
+            this.btClipBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btClipBoard.Location = new System.Drawing.Point(33, 221);
+            this.btClipBoard.Name = "btClipBoard";
+            this.btClipBoard.Size = new System.Drawing.Size(135, 23);
+            this.btClipBoard.TabIndex = 4;
+            this.btClipBoard.Text = "Copiaza Profesor";
+            this.btClipBoard.UseVisualStyleBackColor = false;
+            this.btClipBoard.Click += new System.EventHandler(this.btClipboard_Click);
             // 
             // tbDragAndDrop
             // 
@@ -470,17 +480,102 @@ namespace Elaborare_orarii_profesori
             this.tbDragAndDrop.TabIndex = 5;
             this.tbDragAndDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbDragAndDrop_MouseDown);
             // 
-            // btIncarcareOrar
+            // btPremiu
             // 
-            this.btIncarcareOrar.BackColor = System.Drawing.Color.Lime;
-            this.btIncarcareOrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btIncarcareOrar.Location = new System.Drawing.Point(797, 193);
-            this.btIncarcareOrar.Name = "btIncarcareOrar";
-            this.btIncarcareOrar.Size = new System.Drawing.Size(202, 23);
-            this.btIncarcareOrar.TabIndex = 6;
-            this.btIncarcareOrar.Text = "IncarcareProfesorPremiu";
-            this.btIncarcareOrar.UseVisualStyleBackColor = false;
-            this.btIncarcareOrar.Click += new System.EventHandler(this.btIncarcareOrar_Click);
+            this.btPremiu.BackColor = System.Drawing.Color.Lime;
+            this.btPremiu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPremiu.Location = new System.Drawing.Point(797, 193);
+            this.btPremiu.Name = "btPremiu";
+            this.btPremiu.Size = new System.Drawing.Size(202, 23);
+            this.btPremiu.TabIndex = 6;
+            this.btPremiu.Text = "IncarcareProfesorPremiu";
+            this.btPremiu.UseVisualStyleBackColor = false;
+            this.btPremiu.Click += new System.EventHandler(this.btPremiu_Click);
+            // 
+            // lvProfDisciplina
+            // 
+            this.lvProfDisciplina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lvProfDisciplina.BackgroundImage")));
+            this.lvProfDisciplina.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.lvProfDisciplina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvProfDisciplina.FullRowSelect = true;
+            this.lvProfDisciplina.GridLines = true;
+            this.lvProfDisciplina.HideSelection = false;
+            this.lvProfDisciplina.Location = new System.Drawing.Point(811, 48);
+            this.lvProfDisciplina.Name = "lvProfDisciplina";
+            this.lvProfDisciplina.Size = new System.Drawing.Size(316, 124);
+            this.lvProfDisciplina.TabIndex = 7;
+            this.lvProfDisciplina.UseCompatibleStateImageBehavior = false;
+            this.lvProfDisciplina.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Profesor Suplinitor";
+            this.columnHeader9.Width = 140;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Disciplina";
+            this.columnHeader10.Width = 150;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.toolStrip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStrip1.BackgroundImage")));
+            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MeniuBazaDeDate});
+            this.toolStrip1.Location = new System.Drawing.Point(1139, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(32, 544);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // MeniuBazaDeDate
+            // 
+            this.MeniuBazaDeDate.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.MeniuBazaDeDate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MeniuBazaDeDate.BackgroundImage")));
+            this.MeniuBazaDeDate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MeniuBazaDeDate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MeniuBazaDeDate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adaugareSuplinitorToolStripMenuItem,
+            this.stergeSuplinitorToolStripMenuItem,
+            this.modificaSuplinitorToolStripMenuItem,
+            this.sortarePeMaterieToolStripMenuItem});
+            this.MeniuBazaDeDate.Image = ((System.Drawing.Image)(resources.GetObject("MeniuBazaDeDate.Image")));
+            this.MeniuBazaDeDate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.MeniuBazaDeDate.Name = "MeniuBazaDeDate";
+            this.MeniuBazaDeDate.Size = new System.Drawing.Size(29, 20);
+            this.MeniuBazaDeDate.Text = "toolStripDropDownButton1";
+            // 
+            // adaugareSuplinitorToolStripMenuItem
+            // 
+            this.adaugareSuplinitorToolStripMenuItem.Name = "adaugareSuplinitorToolStripMenuItem";
+            this.adaugareSuplinitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adaugareSuplinitorToolStripMenuItem.Text = "AdaugareSuplinitor";
+            this.adaugareSuplinitorToolStripMenuItem.Click += new System.EventHandler(this.adaugareSuplinitorToolStripMenuItem_Click);
+            // 
+            // stergeSuplinitorToolStripMenuItem
+            // 
+            this.stergeSuplinitorToolStripMenuItem.Name = "stergeSuplinitorToolStripMenuItem";
+            this.stergeSuplinitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stergeSuplinitorToolStripMenuItem.Text = "StergeSuplinitor";
+            this.stergeSuplinitorToolStripMenuItem.Click += new System.EventHandler(this.stergeSuplinitorToolStripMenuItem_Click);
+            // 
+            // modificaSuplinitorToolStripMenuItem
+            // 
+            this.modificaSuplinitorToolStripMenuItem.Name = "modificaSuplinitorToolStripMenuItem";
+            this.modificaSuplinitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificaSuplinitorToolStripMenuItem.Text = "ModificaSuplinitor";
+            this.modificaSuplinitorToolStripMenuItem.Click += new System.EventHandler(this.modificaSuplinitorToolStripMenuItem_Click);
+            // 
+            // sortarePeMaterieToolStripMenuItem
+            // 
+            this.sortarePeMaterieToolStripMenuItem.Name = "sortarePeMaterieToolStripMenuItem";
+            this.sortarePeMaterieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortarePeMaterieToolStripMenuItem.Text = "SortarePeMaterie";
             // 
             // OrarProfesoriForm
             // 
@@ -488,9 +583,11 @@ namespace Elaborare_orarii_profesori
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1171, 568);
-            this.Controls.Add(this.btIncarcareOrar);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.lvProfDisciplina);
+            this.Controls.Add(this.btPremiu);
             this.Controls.Add(this.tbDragAndDrop);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btClipBoard);
             this.Controls.Add(this.lvOrar);
             this.Controls.Add(this.lvProfesori);
             this.Controls.Add(this.groupBox1);
@@ -506,6 +603,8 @@ namespace Elaborare_orarii_profesori
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,8 +653,17 @@ namespace Elaborare_orarii_profesori
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.PrintDialog printDialog;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btIncarcareOrar;
+        private System.Windows.Forms.Button btClipBoard;
+        private System.Windows.Forms.Button btPremiu;
         private System.Windows.Forms.TextBox tbDragAndDrop;
+        private System.Windows.Forms.ListView lvProfDisciplina;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton MeniuBazaDeDate;
+        private System.Windows.Forms.ToolStripMenuItem adaugareSuplinitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stergeSuplinitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificaSuplinitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sortarePeMaterieToolStripMenuItem;
     }
 }

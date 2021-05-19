@@ -37,6 +37,7 @@ namespace Elaborare_orarii_profesori
             this.tbUserNameLog = new System.Windows.Forms.TextBox();
             this.tbPasswordLog = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbUserName
@@ -108,12 +109,22 @@ namespace Elaborare_orarii_profesori
             this.linkLabel1.Text = "aici";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(445, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Copyright@ Neatu Adrian 2021";
+            // 
             // FormLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(609, 471);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tbPasswordLog);
             this.Controls.Add(this.tbUserNameLog);
@@ -139,6 +150,7 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.TextBox tbUserNameLog;
         private System.Windows.Forms.TextBox tbPasswordLog;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

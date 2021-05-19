@@ -78,6 +78,12 @@
     <Compile Include="AccesAplicatieForm.Designer.cs">
       <DependentUpon>AccesAplicatieForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProfesorSuplinitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfesorSuplinitor.Designer.cs">
+      <DependentUpon>FormProfesorSuplinitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocatieControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <EmbeddedResource Include="AccesAplicatieForm.resx">
       <DependentUpon>AccesAplicatieForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProfesorSuplinitor.resx">
+      <DependentUpon>FormProfesorSuplinitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocatieControl.resx">
       <DependentUpon>LocatieControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +126,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="bin\Debug\database.db" />
+    <None Include="bin\Debug\database2.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

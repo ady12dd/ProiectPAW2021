@@ -3,7 +3,7 @@
 namespace Elaborare_orarii_profesori.Clase
 {
     [Serializable]
-    class Disciplina
+    public class Disciplina
     {
         private string numeDisciplina;
         private string tipEvaluare;

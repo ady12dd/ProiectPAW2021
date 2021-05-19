@@ -10,6 +10,7 @@ namespace Elaborare_orarii_profesori.Clase
         private string grad;
         private int varsta;
         private string sex;
+        private Disciplina disciplina;
         private List<ZiSaptamana> zileSaptamana;
 
 
@@ -26,13 +27,20 @@ namespace Elaborare_orarii_profesori.Clase
             this.ZileSaptamana = new List<ZiSaptamana>();
         }
 
+        public Profesor(string numeProfesor, string grad, int varsta, Disciplina disciplina)
+        {
+            this.numeProfesor = numeProfesor;
+            this.grad = grad;
+            this.varsta = varsta;
+            this.disciplina = disciplina;
+        }
+
         public string Nume { get => numeProfesor; set => numeProfesor = value; }
         public string Grad { get => grad; set => grad = value; }
         public int Varsta { get => varsta; set => varsta = value; }
         public string Sex { get => sex; set => sex = value; }
         internal List<ZiSaptamana> ZileSaptamana { get => zileSaptamana; set => zileSaptamana = value; }
-
-
+        internal Disciplina Disciplina { get => disciplina; set => disciplina = value; }
 
         public int CompareTo(Profesor other)
         {
