@@ -45,6 +45,7 @@ namespace Elaborare_orarii_profesori
                     {
                         OrarProfesoriForm orarProfesori = new OrarProfesoriForm();
                         orarProfesori.Show();
+                        this.Hide();
 
 
 

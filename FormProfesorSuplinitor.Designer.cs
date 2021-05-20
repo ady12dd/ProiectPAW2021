@@ -156,6 +156,7 @@ namespace Elaborare_orarii_profesori
             this.Controls.Add(this.label1);
             this.Name = "FormProfesorSuplinitor";
             this.Text = "AdaugareProfesorSuplinitor";
+            this.Load += new System.EventHandler(this.FormProfesorSuplinitor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

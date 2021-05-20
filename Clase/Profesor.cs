@@ -6,6 +6,7 @@ namespace Elaborare_orarii_profesori.Clase
     [Serializable]
     public class Profesor : IComparable<Profesor>
     {
+        private long id;
         private string numeProfesor;
         private string grad;
         private int varsta;
@@ -16,6 +17,7 @@ namespace Elaborare_orarii_profesori.Clase
 
         public Profesor()
         {
+            this.disciplina = new Disciplina("", "");
         }
 
         public Profesor(string nume, string grad, int varsta, string sex)
@@ -27,18 +29,21 @@ namespace Elaborare_orarii_profesori.Clase
             this.ZileSaptamana = new List<ZiSaptamana>();
         }
 
-        public Profesor(string numeProfesor, string grad, int varsta, Disciplina disciplina)
+        public Profesor(long id,string numeProfesor, string grad, int varsta, Disciplina disciplina)
         {
+            this.id = id;
             this.numeProfesor = numeProfesor;
             this.grad = grad;
             this.varsta = varsta;
             this.disciplina = disciplina;
+            
         }
 
         public string Nume { get => numeProfesor; set => numeProfesor = value; }
         public string Grad { get => grad; set => grad = value; }
         public int Varsta { get => varsta; set => varsta = value; }
         public string Sex { get => sex; set => sex = value; }
+        public long Id { get => id; set => id = value; }
         internal List<ZiSaptamana> ZileSaptamana { get => zileSaptamana; set => zileSaptamana = value; }
         internal Disciplina Disciplina { get => disciplina; set => disciplina = value; }
 

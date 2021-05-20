@@ -84,6 +84,10 @@ namespace Elaborare_orarii_profesori
             this.stergeSuplinitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaSuplinitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortarePeMaterieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbCriteriu = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnRefres = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -497,7 +501,8 @@ namespace Elaborare_orarii_profesori
             this.lvProfDisciplina.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lvProfDisciplina.BackgroundImage")));
             this.lvProfDisciplina.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9,
-            this.columnHeader10});
+            this.columnHeader10,
+            this.columnHeader11});
             this.lvProfDisciplina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProfDisciplina.FullRowSelect = true;
             this.lvProfDisciplina.GridLines = true;
@@ -511,12 +516,12 @@ namespace Elaborare_orarii_profesori
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "Profesor Suplinitor";
-            this.columnHeader9.Width = 140;
+            this.columnHeader9.Text = "Id";
+            this.columnHeader9.Width = 33;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Disciplina";
+            this.columnHeader10.Text = "Profesor Suplinitor";
             this.columnHeader10.Width = 150;
             // 
             // toolStrip1
@@ -527,9 +532,9 @@ namespace Elaborare_orarii_profesori
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Right;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MeniuBazaDeDate});
-            this.toolStrip1.Location = new System.Drawing.Point(1139, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(1141, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(32, 544);
+            this.toolStrip1.Size = new System.Drawing.Size(30, 544);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -547,7 +552,7 @@ namespace Elaborare_orarii_profesori
             this.MeniuBazaDeDate.Image = ((System.Drawing.Image)(resources.GetObject("MeniuBazaDeDate.Image")));
             this.MeniuBazaDeDate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MeniuBazaDeDate.Name = "MeniuBazaDeDate";
-            this.MeniuBazaDeDate.Size = new System.Drawing.Size(29, 20);
+            this.MeniuBazaDeDate.Size = new System.Drawing.Size(27, 20);
             this.MeniuBazaDeDate.Text = "toolStripDropDownButton1";
             // 
             // adaugareSuplinitorToolStripMenuItem
@@ -576,6 +581,40 @@ namespace Elaborare_orarii_profesori
             this.sortarePeMaterieToolStripMenuItem.Name = "sortarePeMaterieToolStripMenuItem";
             this.sortarePeMaterieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sortarePeMaterieToolStripMenuItem.Text = "SortarePeMaterie";
+            this.sortarePeMaterieToolStripMenuItem.Click += new System.EventHandler(this.sortarePeMaterieToolStripMenuItem_Click);
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Disciplina";
+            this.columnHeader11.Width = 116;
+            // 
+            // tbCriteriu
+            // 
+            this.tbCriteriu.Location = new System.Drawing.Point(1038, 195);
+            this.tbCriteriu.Name = "tbCriteriu";
+            this.tbCriteriu.Size = new System.Drawing.Size(100, 20);
+            this.tbCriteriu.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1005, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Crt";
+            // 
+            // btnRefres
+            // 
+            this.btnRefres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnRefres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefres.Location = new System.Drawing.Point(1038, 222);
+            this.btnRefres.Name = "btnRefres";
+            this.btnRefres.Size = new System.Drawing.Size(75, 23);
+            this.btnRefres.TabIndex = 11;
+            this.btnRefres.Text = "REFRESH";
+            this.btnRefres.UseVisualStyleBackColor = false;
+            this.btnRefres.Click += new System.EventHandler(this.btnRefres_Click);
             // 
             // OrarProfesoriForm
             // 
@@ -583,6 +622,9 @@ namespace Elaborare_orarii_profesori
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1171, 568);
+            this.Controls.Add(this.btnRefres);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbCriteriu);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lvProfDisciplina);
             this.Controls.Add(this.btPremiu);
@@ -665,5 +707,9 @@ namespace Elaborare_orarii_profesori
         private System.Windows.Forms.ToolStripMenuItem stergeSuplinitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaSuplinitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortarePeMaterieToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbCriteriu;
+        private System.Windows.Forms.Button btnRefres;
     }
 }

@@ -25,9 +25,26 @@ namespace Elaborare_orarii_profesori
             suplinitor.Nume = tbNumeSup.Text;
             suplinitor.Grad = tbGradSup.Text;
             int varsta = 0;
-            int.TryParse(tbVarstaSup.Text,out int varstsa);
+            int.TryParse(tbVarstaSup.Text.ToString(),out int varstsa);
             suplinitor.Varsta = varsta;
             suplinitor.Disciplina = new Disciplina(tbDisciplinaSup.Text, "");
+
+        }
+
+        private void FormProfesorSuplinitor_Load(object sender, EventArgs e)
+        {
+            if (suplinitor.Nume == "") {
+                tbNumeSup.Text = "";
+                tbGradSup.Text = "";
+                int varsta = 0;
+                tbVarstaSup.Text = varsta.ToString();
+                tbDisciplinaSup.Text = "";
+            }
+            tbNumeSup.Text = suplinitor.Nume;
+            tbGradSup.Text = suplinitor.Grad;
+            tbVarstaSup.Text = suplinitor.Varsta.ToString();
+            tbDisciplinaSup.Text = suplinitor.Disciplina.NumeDisciplina;
+
 
         }
     }
